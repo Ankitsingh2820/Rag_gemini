@@ -1,56 +1,109 @@
-# Retrieval Augmented Generation (RAG) for chatbots
-RAG enabled Chatbots using [LangChain](https://www.langchain.com) and [Databutton](https://databutton.com/login?utm_source=github&utm_medium=avra&utm_article=rag)
-![](https://github.com/avrabyt/RAG-Chatbot/blob/main/thumbnail.webp)
+# RAG Chatbot with Gemini
 
-- For the front-end : `app.py`
-- PDF parsing and indexing : `brain.py`
-- API keys are maintained over databutton secret management
-- Indexed are stored over session state 
+A Retrieval Augmented Generation (RAG) chatbot built with LangChain, Streamlit, and Google's Gemini API.
 
-Oversimplified explanation : (**Retrieval**) Fetch the top N similar contexts via similarity search from the indexed PDF files -> concatanate those to the prompt (**Prompt Augumentation**) -> Pass it to the LLM -> which further generates response (**Generation**) like any LLM does. **More in the blog!**
+**🚀 [Live Demo - Deploy on Streamlit Cloud](https://rag-chatbot-gemini.streamlit.app)**
 
-**Blog Post - [Here](https://medium.com/databutton/why-your-next-ai-product-needs-rag-implemented-in-it-9ee22f9770c8)**
+## Features
 
-**YouTube video - [Here](https://youtu.be/Yh1GEWqgkt0)**
+- 📄 Upload and process multiple PDF files
+- 🤖 AI-powered responses using Google Gemini 1.5 Flash
+- 🔍 Semantic search with FAISS vector store
+- 📍 Source citations with file names and page numbers
+- 💬 Multi-turn conversation support
 
-To get started quickly, you can use the “Chat with PDF” [template](https://databutton.com/new?templateId=pt-x2Rh7dEYwIuCxXaR) within Databutton 🚀
+## Project Structure
 
-> Alternatively, you can use [Streamlit](https://streamlit.io) to build and deploy! In that case few changes such as `st.secrets` needs to be implemented!
+- `app.py` - Streamlit frontend interface
+- `brain.py` - PDF processing and vector database management
+- `.env` - Environment variables (API keys)
+- `requirements.txt` - Python dependencies
 
-# Similar projects
+## Quick Start
 
-#### [Building a Simple Chatbot using ChatGPTAPI & Databutton with memory 🧠](https://github.com/avrabyt/MemoryBot)
+### Local Installation
 
->Memory implementation can also be an interesting feature in this current RAG enabled Chatbot.
+1. **Clone the repository**:
+```bash
+git clone https://github.com/Ankitsingh2820/Rag_gemini.git
+cd Rag_gemini
+```
 
-Repo - [MemoryBot](https://github.com/avrabyt/MemoryBot)
+2. **Create a virtual environment**:
+```bash
+python -m venv venv
+.\venv\Scripts\Activate.ps1  # Windows
+source venv/bin/activate     # macOS/Linux
+```
 
-The live demo app is hosted over [here](https://next.databutton.com/v/lgzxq112/Memory_Bot)
+3. **Install dependencies**:
+```bash
+pip install -r requirements.txt
+```
 
-Blog - [here](https://medium.com/@avra42/how-to-build-a-chatbot-with-chatgpt-api-and-a-conversational-memory-in-python-8d856cda4542) 
+4. **Set up your Google API key**:
+   - Get a free API key from [Google AI Studio](https://aistudio.google.com/apikey)
+   - Create a `.env` file:
+   ```
+   GOOGLE_API_KEY=your_api_key_here
+   ```
 
-Video - [here](https://youtu.be/cHjlperESbg)
+5. **Run the app**:
+```bash
+.\venv\Scripts\streamlit.exe run app.py
+```
 
-#### [PDF Chatbot with Memory](https://github.com/avrabyt/PersonalMemoryBot)
-> Similar to Chat with PDF approach, with enabled memory. 
+Access at `http://localhost:8502`
 
-Demo App - [here](https://next.databutton.com/v/lgzxq112/Personalised_Memory_Bot)
+## Deploy on Streamlit Cloud
 
-Video - [here](https://youtu.be/daMNGGPJkEE)
+1. **Repository is ready** ✓ (https://github.com/Ankitsingh2820/Rag_gemini)
 
-Blog - [here](https://medium.com/@avra42/how-to-build-a-personalized-pdf-chat-bot-with-conversational-memory-965280c160f8)
+2. **Go to Streamlit Cloud**:
+   - Visit [share.streamlit.io](https://share.streamlit.io)
+   - Click "New app"
+   - Select:
+     - Repository: `Ankitsingh2820/Rag_gemini`
+     - Branch: `master`
+     - Main file: `app.py`
 
-![](https://github.com/avrabyt/RAG-Chatbot/blob/main/compare%20medium.gif)
+3. **Add Secrets**:
+   - Go to app settings → "Secrets"
+   - Add your API key:
+   ```
+   GOOGLE_API_KEY = "your_api_key_here"
+   ```
 
+4. **Deploy** - Streamlit will automatically deploy your app!
 
+Your live app URL will be something like: `https://rag-chatbot-gemini.streamlit.app`
 
+## How It Works
 
+1. Upload PDF files through the web interface
+2. PDFs are parsed into chunks and converted to embeddings
+3. Embeddings are stored in a FAISS vector database
+4. When you ask a question, it's embedded and matched against stored documents
+5. Similar contexts are sent to Gemini along with your question
+6. Gemini generates an answer with source citations (file name + page number)
 
+## Technologies
 
+- **LangChain** - LLM framework for RAG
+- **Streamlit** - Web app framework
+- **Google Gemini API** - LLM
+- **FAISS** - Vector similarity search
+- **PyPDF** - PDF parsing
 
+## Requirements
 
+- Python 3.8+
+- Google API key (free from [ai.google.dev](https://ai.google.dev))
 
+## License
 
+MIT License
 
+## Support
 
-
+For issues or questions, please create an issue on [GitHub](https://github.com/Ankitsingh2820/Rag_gemini/issues).
