@@ -1,5 +1,10 @@
-openai
+streamlit
 langchain
+langchain-core
+langchain-text-splitters
+langchain-community
+langchain-google-genai
 faiss-cpu
 pypdf
-tiktoken
+python-dotenv
+google-generativeai
