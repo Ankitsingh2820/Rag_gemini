@@ -2,7 +2,8 @@
 
 A Retrieval Augmented Generation (RAG) chatbot built with LangChain, Streamlit, and Google's Gemini API.
 
-**🚀 [Live Demo - Deploy on Streamlit Cloud](https://rag-chatbot-gemini.streamlit.app)**
+**🚀 [Live Demo - Deploy on Streamlit Cloud][![Uploading image.png…](https://raggemini-sgydghhwunzcauwdn7b3bh.streamlit.app/)]()
+)**
 
 ## Features
 
